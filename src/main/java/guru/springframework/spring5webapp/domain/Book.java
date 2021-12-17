@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Created by jt on 12/22/19.
+ */
 @Entity
 public class Book {
 
@@ -18,13 +21,12 @@ public class Book {
     private Publisher publisher;
 
     @ManyToMany
-    @JoinTable(name ="author_book", joinColumns = @JoinColumn(name = "book_id"),
+    @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors = new HashSet<>();
 
     public Book() {
     }
-
 
     public Book(String title, String isbn) {
         this.title = title;
@@ -77,7 +79,6 @@ public class Book {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", authors=" + authors +
                 '}';
     }
 

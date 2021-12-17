@@ -9,6 +9,9 @@ import guru.springframework.spring5webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/**
+ * Created by jt on 12/23/19.
+ */
 @Component
 public class BootStrapData implements CommandLineRunner {
 
@@ -29,6 +32,7 @@ public class BootStrapData implements CommandLineRunner {
 
         Publisher publisher = new Publisher();
         publisher.setName("SFG Publishing");
+        publisher.setCity("St Petersburg");
         publisher.setState("FL");
 
         publisherRepository.save(publisher);
@@ -58,7 +62,6 @@ public class BootStrapData implements CommandLineRunner {
         authorRepository.save(rod);
         bookRepository.save(noEJB);
         publisherRepository.save(publisher);
-
 
         System.out.println("Number of Books: " + bookRepository.count());
         System.out.println("Publisher Number of Books: " + publisher.getBooks().size());
